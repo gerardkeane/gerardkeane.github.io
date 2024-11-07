@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholar's Landing</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/garamond-premier-pro/1.0.0/garamond-premier-pro.css" rel="stylesheet">
+    <link href="https://fonts.cdnjs.com/css2?family=Cormorant+Garamond:wght@400;600&family=Libre+Baskerville:wght@400;700&family=Crimson+Text:wght@400;600&family=Gentium+Book+Basic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Font Combinations Demo */
+        .font-demo {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--parchment);
+            border: 1px solid var(--gold);
+        }
+
+        .combination-1 h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        .combination-1 p {
+            font-family: 'Gentium Book Basic', serif;
+        }
+
+        .combination-2 h2 {
+            font-family: 'Libre Baskerville', serif;
+            font-weight: 700;
+        }
+        .combination-2 p {
+            font-family: 'Crimson Text', serif;
+        }
+
+        .combination-3 h2 {
+            font-family: 'Garamond Premier Pro', serif;
+            font-weight: 600;
+        }
+        .combination-3 p {
+            font-family: 'Source Serif Pro', serif;
+        }
+
+        /* Base Styles */
+        :root {
+            --parchment: #f4f1ea;
+            --ink: #2c1810;
+            --accent: #8b0000;
+            --gold: #bf9b30;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: var(--ink);
+            background: white;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        h2 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-variant: small-caps;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .decorative-line {
+            width: 200px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1rem 0;
+        }
+
+        .label {
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="font-demo combination-1">
+        <div class="label">Combination 1: Cormorant Garamond & Gentium Book Basic</div>
+        <h2>The Art of Typography</h2>
+        <div class="decorative-line"></div>
+        <p>In the realm of classical scholarship, the arrangement of letters becomes an art form unto itself, where each character carries the weight of centuries of intellectual discourse.</p>
+    </div>
+
+    <div class="font-demo combination-2">
+        <div class="label">Combination 2: Libre Baskerville & Crimson Text</div>
+        <h2>The Art of Typography</h2>
+        <div class="decorative-line"></div>
+        <p>In the realm of classical scholarship, the arrangement of letters becomes an art form unto itself, where each character carries the weight of centuries of intellectual discourse.</p>
+    </div>
+
+    <div class="font-demo combination-3">
+        <div class="label">Combination 3: Garamond Premier Pro & Source Serif Pro</div>
+        <h2>The Art of Typography</h2>
+        <div class="decorative-line"></div>
+        <p>In the realm of classical scholarship, the arrangement of letters becomes an art form unto itself, where each character carries the weight of centuries of intellectual discourse.</p>
+    </div>
+</body>
+</html>
