@@ -4,43 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scholar's Landing</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/garamond-premier-pro/1.0.0/garamond-premier-pro.css" rel="stylesheet">
-    <link href="https://fonts.cdnjs.com/css2?family=Cormorant+Garamond:wght@400;600&family=Libre+Baskerville:wght@400;700&family=Crimson+Text:wght@400;600&family=Gentium+Book+Basic:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Font Combinations Demo */
-        .font-demo {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background: var(--parchment);
-            border: 1px solid var(--gold);
-        }
-
-        .combination-1 h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-        }
-        .combination-1 p {
-            font-family: 'Gentium Book Basic', serif;
-        }
-
-        .combination-2 h2 {
-            font-family: 'Libre Baskerville', serif;
-            font-weight: 700;
-        }
-        .combination-2 p {
-            font-family: 'Crimson Text', serif;
-        }
-
-        .combination-3 h2 {
-            font-family: 'Garamond Premier Pro', serif;
-            font-weight: 600;
-        }
-        .combination-3 p {
-            font-family: 'Source Serif Pro', serif;
-        }
-
-        /* Base Styles */
         :root {
             --parchment: #f4f1ea;
             --ink: #2c1810;
@@ -52,61 +16,269 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            color: var(--ink);
-            background: white;
+            font-family: "Palatino", "Times New Roman", serif;
             line-height: 1.6;
-            padding: 2rem;
+            color: var(--ink);
+            background: var(--parchment);
         }
 
-        h2 {
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(244, 241, 234, 0.95);
+            padding: 1rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--ink);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .nav a:hover {
             color: var(--accent);
-            font-size: 2.5rem;
+        }
+
+        .nav a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .landing {
+            background: linear-gradient(rgba(244, 241, 234, 0.9), rgba(244, 241, 234, 0.9)),
+                        url('/api/placeholder/1920/1080') center/cover;
+            text-align: center;
+        }
+
+        .landing h1 {
+            font-size: 4rem;
             margin-bottom: 1rem;
+            color: var(--accent);
             font-variant: small-caps;
         }
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .landing p {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--ink);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .decorative-line {
             width: 200px;
             height: 2px;
             background: var(--gold);
+            margin: 2rem auto;
+        }
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .about h2, .portfolio h2, .contact h2 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            font-variant: small-caps;
+        }
+
+        .portfolio {
+            background: var(--parchment);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .portfolio-item {
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid var(--gold);
+            text-align: center;
+        }
+
+        .portfolio-item h3 {
+            color: var(--accent);
             margin: 1rem 0;
         }
 
-        .label {
+        .contact {
+            background: white;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--gold);
+            background: var(--parchment);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: var(--gold);
+        }
+
+        .ornament {
+            font-size: 2rem;
             color: var(--gold);
-            font-style: italic;
-            margin-bottom: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .landing h1 {
+                font-size: 3rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding-top: 8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="font-demo combination-1">
-        <div class="label">Combination 1: Cormorant Garamond & Gentium Book Basic</div>
-        <h2>The Art of Typography</h2>
-        <div class="decorative-line"></div>
-        <p>In the realm of classical scholarship, the arrangement of letters becomes an art form unto itself, where each character carries the weight of centuries of intellectual discourse.</p>
-    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <div class="font-demo combination-2">
-        <div class="label">Combination 2: Libre Baskerville & Crimson Text</div>
-        <h2>The Art of Typography</h2>
+    <section id="home" class="section landing">
+        <h1>Your Name</h1>
         <div class="decorative-line"></div>
-        <p>In the realm of classical scholarship, the arrangement of letters becomes an art form unto itself, where each character carries the weight of centuries of intellectual discourse.</p>
-    </div>
+        <p>"In pursuit of knowledge and truth"</p>
+        <div class="ornament">☘</div>
+    </section>
 
-    <div class="font-demo combination-3">
-        <div class="label">Combination 3: Garamond Premier Pro & Source Serif Pro</div>
-        <h2>The Art of Typography</h2>
+    <section id="about" class="section about">
+        <div class="about-content">
+            <h2>About</h2>
+            <div class="decorative-line"></div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae sapien in libero tempor dignissim. Nulla facilisi. Praesent euismod, nisi at fermentum bibendum, nunc nisi aliquam nunc.</p>
+            <div class="ornament">✧</div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section portfolio">
+        <h2>Portfolio</h2>
         <div class="decorative-line"></div>
-        <p>In the realm of classical scholarship, the arrangement of letters becomes an art form unto itself, where each character carries the weight of centuries of intellectual discourse.</p>
-    </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Project One</h3>
+                <p>Description of your first project goes here.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project Two</h3>
+                <p>Description of your second project goes here.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Project Three</h3>
+                <p>Description of your third project goes here.</p>
+            </div>
+        </div>
+        <div class="ornament">❧</div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Contact</h2>
+        <div class="decorative-line"></div>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="ornament">⚜</div>
+    </section>
 </body>
 </html>
