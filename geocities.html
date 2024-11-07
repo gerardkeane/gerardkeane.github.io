@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Homepage!</title>
+    <style>
+        /* Background pattern */
+        body {
+            background: #000000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAIklEQVQoU2NkYGD4z4AHMPKAMNHYZIB4BTDTGEEmMmIzEQA+uwsE0UxiKgAAAABJRU5ErkJggg==');
+            color: #ffffff;
+            font-family: "Comic Sans MS", cursive;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000080;
+            border: 3px solid #ff00ff;
+            padding: 20px;
+            box-shadow: 10px 10px 0 #00ff00;
+        }
+
+        .header {
+            text-align: center;
+            background: #000000;
+            border: 2px solid #ff00ff;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ff00ff;
+            text-shadow: 2px 2px #00ff00;
+            margin: 0;
+            animation: rainbow 2s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { color: #ff0000; }
+            20% { color: #ff00ff; }
+            40% { color: #00ff00; }
+            60% { color: #ffff00; }
+            80% { color: #00ffff; }
+            100% { color: #ff0000; }
+        }
+
+        .divider {
+            height: 10px;
+            background: repeating-linear-gradient(
+                45deg,
+                #ff0000,
+                #ff0000 10px,
+                #ffff00 10px,
+                #ffff00 20px
+            );
+            margin: 20px 0;
+        }
+
+        .section {
+            background: #000000;
+            border: 2px solid #00ff00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section h2 {
+            color: #ffff00;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            background: #ff00ff;
+            color: #ffffff;
+            padding: 5px 15px;
+            text-decoration: none;
+            border: 2px outset #ff99ff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .nav a:hover {
+            background: #00ff00;
+            border-style: inset;
+        }
+
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: #000000;
+            border: 2px solid #ffff00;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .portfolio-item:hover {
+            border-color: #00ff00;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, textarea {
+            background: #ffffff;
+            border: 2px inset #666666;
+            padding: 5px;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        button {
+            background: #ff00ff;
+            color: #ffffff;
+            border: 2px outset #ff99ff;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        button:hover {
+            background: #00ff00;
+        }
+
+        .construction {
+            text-align: center;
+            color: #ffff00;
+            font-size: 20px;
+            margin: 20px 0;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .counter {
+            text-align: center;
+            background: #000000;
+            border: 2px solid #ff00ff;
+            padding: 10px;
+            margin: 20px auto;
+            width: fit-content;
+            font-family: "Courier New", monospace;
+            color: #00ff00;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #00ff00;
+        }
+
+        /* Marquee text */
+        .marquee {
+            background: #000000;
+            color: #ff00ff;
+            padding: 5px;
+            margin: 10px 0;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Guestbook link */
+        .guestbook {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .guestbook a {
+            color: #ffff00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .guestbook a:hover {
+            color: #00ff00;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>✨ Welcome to My Homepage! ✨</h1>
+        </header>
+
+        <div class="marquee">
+            <span>📢 WELCOME TO MY CORNER OF THE WORLD WIDE WEB! BEST VIEWED WITH NETSCAPE NAVIGATOR AT 800x600! 📢</span>
+        </div>
+
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Cool Stuff</a>
+            <a href="#contact">E-Mail Me</a>
+        </nav>
+
+        <div class="construction">
+            🚧 UNDER CONSTRUCTION 🚧
+        </div>
+
+        <div class="divider"></div>
+
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>Hey there! Welcome to my home on the World Wide Web! I'm a digital creator exploring the intersection of nostalgia and modern web design. This page is best viewed with Netscape Navigator!</p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="portfolio" class="section">
+            <h2>My Cool Stuff</h2>
+            <div class="portfolio">
+                <div class="portfolio-item">
+                    <h3>Project 1</h3>
+                    <p>Check out my awesome project!</p>
+                </div>
+                <div class="portfolio-item">
+                    <h3>Project 2</h3>
+                    <p>Another rad creation!</p>
+                </div>
+                <div class="portfolio-item">
+                    <h3>Project 3</h3>
+                    <p>More cool stuff!</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section id="contact" class="section">
+            <h2>E-Mail Me!</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your E-Mail" required>
+                <textarea rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message!</button>
+            </form>
+        </section>
+
+        <div class="guestbook">
+            <a href="#guestbook">📖 Sign My Guestbook! 📖</a>
+        </div>
+
+        <div class="counter">
+            Visitors: 000001337
+        </div>
+
+        <footer class="footer">
+            <p>©1997 My Cool Website. Made with ❤️ and Notepad.</p>
+            <p>Best viewed with Netscape Navigator at 800x600.</p>
+        </footer>
+    </div>
+</body>
+</html>
