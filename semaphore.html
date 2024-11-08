@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Semaphore - The Voice of the Fleet</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cormorant-garamond/3.601/CormorantGaramond-Medium.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cormorant-garamond/3.601/CormorantGaramond-Bold.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cormorant-garamond/3.601/CormorantGaramond-LightItalic.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/crimson-text/0.1.1/crimson-text.min.css" rel="stylesheet">
+
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: rgb(254, 252, 232);
+            color: rgb(55, 65, 81);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: rgb(107, 114, 128);
+        }
+
+        /* Masthead */
+        .masthead {
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+
+        .masthead h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.75rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            color: rgb(31, 41, 55);
+            margin-bottom: 0.5rem;
+        }
+
+        .masthead p {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.125rem;
+            color: rgb(107, 114, 128);
+        }
+
+        /* Navigation */
+        .navigation {
+            border-top: 1px solid rgb(209, 213, 219);
+            border-bottom: 1px solid rgb(209, 213, 219);
+            padding: 0.75rem 0;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-list li {
+            font-family: system-ui, -apple-system, sans-serif;
+            color: rgb(55, 65, 81);
+            cursor: pointer;
+        }
+
+        .nav-list li:hover {
+            color: black;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .featured-story {
+            /* margin-top: 4rem; */
+            margin-bottom: 4rem;
+        }
+
+        .featured-story img {
+            width: 100%;
+            height: 24rem;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+        }
+
+        .category {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .category.breaking {
+            color: rgb(220, 38, 38);
+        }
+
+        .category.tech {
+            color: rgb(37, 99, 235);
+        }
+
+        .category.business {
+            color: rgb(22, 163, 74);
+        }
+
+        .category.arts {
+            color: rgb(147, 51, 234);
+        }
+
+        .category.politics {
+            color: rgb(249, 115, 22);
+        }
+
+        .headline {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 2.25rem;
+            color: rgb(31, 41, 55);
+            margin: 0.5rem 0;
+        }
+
+        .subhead {
+            font-size: 1.25rem;
+            /*max-width: 65ch;*/
+        }
+
+        .byline {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: rgb(107, 114, 128);
+            margin-top: 1rem;
+        }
+
+        /* News Grid */
+        .news-grid {
+            /* max-width: 56rem; */
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .news-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgb(31, 41, 55);
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section div {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-story img {
+                height: 16rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-list {
+                flex-wrap: wrap;
+            }
+
+            .masthead h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <span>☰</span>
+            <span class="date">Sunday, November 8, 2024</span>
+            <span>🔍</span>
+        </div>
+    </div>
+
+    <header class="masthead">
+        <div class="container">
+            <h1>THE SEMAPHORE</h1>
+            <p>The Voice of the Fleet</p>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <div class="container">
+            <ul class="nav-list">
+                <li>Home</li>
+                <li>Politics</li>
+                <li>Business</li>
+                <li>Technology</li>
+                <li>Sports</li>
+                <li>Arts</li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <article class="featured-story">
+                <img src="https://picsum.photos/id/348/1200/600" alt="Featured story">
+                <span class="category breaking">Breaking News</span>
+                <h2 class="headline">Major Scientific Breakthrough Promises New Era in Renewable Energy</h2>
+                <p class="subhead">Scientists announce a revolutionary discovery that could transform how we harness
+                    solar power, promising to make renewable energy more efficient and accessible than ever before. The
+                    breakthrough represents a significant step forward in addressing global energy challenges.</p>
+                <p class="byline">By Sarah Johnson • 5 min read</p>
+            </article>
+
+            <div class="news-grid">
+                <article class="news-item">
+                    <span class="category tech">Technology</span>
+                    <h3>AI Advances Lead to Breakthrough in Medical Diagnostics</h3>
+                    <p>New AI system shows promising results in early disease detection, potentially revolutionizing
+                        how doctors identify and treat various conditions.</p>
+                </article>
+
+                <article class="news-item">
+                    <span class="category business">Business</span>
+                    <h3>Global Markets React to New Economic Policies</h3>
+                    <p>International markets show positive response to recently announced measures,
+                        with major indices reaching new highs across multiple regions.</p>
+                </article>
+
+                <article class="news-item">
+                    <span class="category arts">Arts</span>
+                    <h3>Virtual Reality Art Exhibition Opens to Global Audience</h3>
+                    <p>Revolutionary virtual gallery allows art lovers worldwide to experience masterpieces
+                        in an immersive digital environment.</p>
+                </article>
+
+                <article class="news-item">
+                    <span class="category politics">Politics</span>
+                    <h3>Key Legislative Bill Passes After Historic Vote</h3>
+                    <p>Landmark legislation marks significant shift in policy direction, with bipartisan
+                        support leading to major reforms.</p>
+                </article>
+            </div>
+
+            <article class="featured-story">
+                <img src="https://picsum.photos/id/585/1200/600" alt="Featured story">
+                <span class="category breaking">Sports</span>
+                <h2 class="headline">Scandal hit teams rocked by fresh allegations</h2>
+                <p class="subhead">Multiple clubs have been rocked by fresh allegations of sexual misconduct, leaving
+                    them on the brink of financial ruin.</p>
+                <p class="byline">By John Bobnik • 7 min read</p>
+            </article>
+
+            <div class="news-grid">
+                <article class="news-item">
+                    <!-- <span class="category breaking">Technology</span> -->
+                    <h3>Manchester City Leading Chase for La Liga Star</h3>
+                    <p>The Semaphore understands that Real Madrid frontman Kylian Mbappe is set to end his time in
+                        Spain.</p>
+                </article>
+
+                <article class="news-item">
+                    <!-- <span class="category breaking">Business</span> -->
+                    <h3>Anthony Joshua Announces Box Office Clash</h3>
+                    <p>The londoner is set to face his countryman, Tyson Fury, in a blockbuster boxing match.</p>
+                </article>
+
+                <article class="news-item">
+                    <!-- <span class="category breaking">Arts</span> -->
+                    <h3>Young Managers Favour Revolutionary Tactics</h3>
+                    <p>Apparently, there is something new under the sun after all.</p>
+                </article>
+
+                <article class="news-item">
+                    <!-- <span class="category breaking">Politics</span> -->
+                    <h3>Tennis Ace Seeks to Cement Place in the History Books</h3>
+                    <p>Novak Djokovic, already widely considered the greatest Tennis Player of all time, is searching
+                        for titles to prevent any future challengers from usurping him.</p>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <div>About Us</div>
+                    <div>Editorial Team</div>
+                    <div>Contact</div>
+                    <div>Careers</div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Coverage</h4>
+                    <div>Politics</div>
+                    <div>Business</div>
+                    <div>Technology</div>
+                    <div>Culture</div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <div>Terms of Use</div>
+                    <div>Privacy Policy</div>
+                    <div>Cookie Policy</div>
+                    <div>GDPR</div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div>Newsletter</div>
+                    <div>Twitter</div>
+                    <div>Facebook</div>
+                    <div>RSS Feed</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
